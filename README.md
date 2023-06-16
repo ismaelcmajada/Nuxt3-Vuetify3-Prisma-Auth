@@ -11,6 +11,18 @@ The boilerplate uses the following tech stack:
 3. [Prisma](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/connect-your-database-typescript-postgresql)
 4. [@sidebase/nuxt-auth](https://sidebase.io/nuxt-auth/v0.6/getting-started/quick-start)
 
+## Getting Started
+
+To get started:
+
+1. Clone the repository.
+2. Setup your `.env` file based on the provided `.env.example`.
+3. Run `npm install`.
+4. Execute `npx prisma db push` to generate the database file based on Prisma's schema.
+5. Run `npm run dev`.
+
+The application will then run on your local server.
+
 ## Configuration
 
 Key configuration files:
@@ -18,7 +30,7 @@ Key configuration files:
 - **`nuxt.config.ts`**: This file contains your Nuxt.js configuration, including the Vuetify configuration and authentication.
 - **`/plugins/vuetify.ts`**: This file provides a Vuetify configuration with customizable themes and icons.
 - **`/assets/settings.scss`**: Global Vuetify styles can be customized here.
-- **`/server/auth/[...].ts`**: The authentication setup with `@sidebase/nuxt-auth` resides here, where it uses Prisma to authorize users and manage JWT and sessions.
+- **`/server/api/auth/[...].ts`**: The authentication setup with `@sidebase/nuxt-auth` resides here, where it uses Prisma to authorize users and manage JWT and sessions.
 
 API routes that require protection should be placed in `/server/api/protected`.
 
@@ -37,15 +49,3 @@ The required environment variables:
 - `AUTH_SECRET`: Your JWT token secret.
 
 Please ensure that these variables are correctly set in your `.env` file. You can use the provided `.env.example` as a reference.
-
-## Getting Started
-
-To get started:
-
-1. Clone the repository.
-2. Setup your `.env` file based on the provided `.env.example`.
-3. Run `npm install`.
-4. Execute `npx prisma db push` to generate the database file based on Prisma's schema.
-5. Run `npm run dev`.
-
-The application will then run on your local server.
