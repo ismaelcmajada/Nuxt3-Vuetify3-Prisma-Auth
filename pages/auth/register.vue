@@ -29,7 +29,10 @@ const register = async () => {
         });
     } catch (err) {
         console.error(err)
+        return
     }
+
+    await navigateTo('/auth/login')
 }
 </script>
 

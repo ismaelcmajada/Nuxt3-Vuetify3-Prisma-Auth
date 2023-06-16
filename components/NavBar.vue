@@ -20,7 +20,7 @@ const {  data , signOut  } = useAuth()
         </v-list>
         <v-divider></v-divider>
         <v-list nav>
-            <v-list-item prepend-icon="mdi-logout-variant" @click="signOut()" title="Cerrar sesión"></v-list-item>
+            <v-list-item prepend-icon="mdi-logout-variant" @click="signOut()" title="Sign out"></v-list-item>
         </v-list>
     </v-navigation-drawer>
 
