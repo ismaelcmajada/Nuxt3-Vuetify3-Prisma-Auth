@@ -1,0 +1,12 @@
+// Font that we specify in nuxt.config.ts
+$family: "Poppins", sans-serif;
+
+
+// Edit vuetify global variables with your own preferences
+@use 'vuetify/settings' with (
+    $body-font-family: $family,
+    // For example a custom border radius for vuetify fields:
+    // $field-border-radius: 8px
+);
+
+html { overflow-y: auto };
