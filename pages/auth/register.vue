@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from 'vue'
-import axios from 'axios';
+
+const showToast = inject('showToast')
 
 definePageMeta({
     layout: "auth",
@@ -21,17 +21,20 @@ const rules = ref({
 })
 
 const register = async () => {
-    try {
-        await axios.post(`/api/auth/register`, {
+    const { data, error } = await useFetch(`/api/auth/register`, {
+        method: "POST",
+        body: {
             name: username.value,
             email: email.value,
             password: password.value
-        });
-    } catch (err) {
-        console.error(err)
+        }
+    });
+
+    if (error.value) {
+        showToast(error.value.statusMessage, 'error')
         return
     }
-
+    showToast(data.value.message)
     await navigateTo('/auth/login')
 }
 </script>

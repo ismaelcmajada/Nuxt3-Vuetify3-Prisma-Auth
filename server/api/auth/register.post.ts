@@ -17,19 +17,21 @@ export default defineEventHandler(async (event) => {
 
     if(userExists) {
         throw createError({
-          statusCode: 403,
-          statusMessage: "User already exists",
+            statusCode: 403,
+            statusMessage: "User already exists",
         });
     }
 
-    const user = await prisma.users.create({
+    await prisma.users.create({
         data: {
-          email: body.email,
-          name: body.name,
-          password: await hash(body.password, 12)
+            email: body.email,
+            name: body.name,
+            password: await hash(body.password, 12)
         },
     })
 
-    return { status: 201, message: "User created" };
+    setResponseStatus(event, 201)
+    
+    return { message: "User created" }
 });
 
