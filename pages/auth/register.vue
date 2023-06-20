@@ -28,7 +28,7 @@ const register = async () => {
             email: email.value,
             password: password.value
         }
-    });
+    })
 
     if (error.value) {
         showToast(error.value.statusMessage, 'error')
