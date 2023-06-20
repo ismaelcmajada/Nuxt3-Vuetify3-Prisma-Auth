@@ -3,7 +3,7 @@ export default function useToast() {
     const message = ref('')
     const color = ref('')
 
-    const showToast = (msg, clr = 'success') => {
+    const showToast = (msg: string, clr = 'success') => {
         message.value = msg
         color.value = clr
         toast.value = true

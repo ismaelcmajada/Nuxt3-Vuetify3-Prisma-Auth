@@ -27,7 +27,7 @@ const login = async (username, password) => {
     return
   }
 
-  await navigateTo("/")
+  await navigateTo(useRelativeCallbackUrl(useRoute()).value)
 }
 </script>
 
