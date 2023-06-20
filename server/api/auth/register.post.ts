@@ -1,7 +1,4 @@
-import { PrismaClient } from "@prisma/client";
 import { hash } from "bcrypt";
-
-const prisma = new PrismaClient();
 
 export default defineEventHandler(async (event) => {
     const body = await readBody(event)
