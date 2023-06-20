@@ -1,6 +1,6 @@
 <script setup>
 
-const drawer = ref(null);
+const drawer = ref(null)
 
 const {  data , signOut  } = useAuth()
 

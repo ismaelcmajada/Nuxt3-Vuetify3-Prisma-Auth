@@ -1,6 +1,6 @@
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { NuxtAuthHandler } from '#auth'
-import { compare } from "bcrypt";
+import { compare } from "bcrypt"
 
 export default NuxtAuthHandler({
   secret: process.env.AUTH_SECRET,
@@ -17,23 +17,23 @@ export default NuxtAuthHandler({
 
         const user = await prisma.users.findUnique({
           where: { name: credentials?.username },
-        });
+        })
 
         if(!user) {
           throw createError({
             statusCode: 403,
             statusMessage: "Credentials not working",
-          });
+          })
 
         }
 
-        const isPasswordValid = await compare(credentials?.password, user.password);
+        const isPasswordValid = await compare(credentials?.password, user.password)
 
         if (!isPasswordValid) {
           throw createError({
             statusCode: 403,
             statusMessage: "Credentials not working",
-          });
+          })
 
         }
 
@@ -43,7 +43,7 @@ export default NuxtAuthHandler({
   ],
   callbacks: {
     // Specify here the payload of your token and session
-    async jwt({ token, user }: { token: any; user: any }) {
+    async jwt({ token, user }: { token: any, user: any }) {
       if (user) { 
         token.id = user.id
         token.nombre = user.name
@@ -51,7 +51,7 @@ export default NuxtAuthHandler({
       }
       return token
     },
-    async session({ session, token }: { session: any; token: any }) {
+    async session({ session, token }: { session: any, token: any }) {
       session.user.id = token.id
       session.user.nombre = token.name
       session.user.email = token.email

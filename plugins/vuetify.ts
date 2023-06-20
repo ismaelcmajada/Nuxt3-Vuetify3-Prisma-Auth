@@ -1,15 +1,15 @@
 // @ts-nocheck
 
 import { createVuetify } from "vuetify"
-import { fa } from "vuetify/iconsets/fa";
-import { aliases, mdi } from "vuetify/lib/iconsets/mdi";
+import { fa } from "vuetify/iconsets/fa"
+import { aliases, mdi } from "vuetify/lib/iconsets/mdi"
 
 // import from vuetify/locale to specify vuetify language
 // Example for Spanish language:
 // import { es } from 'vuetify/locale'
 
-import "@mdi/font/css/materialdesignicons.css";
-import "@fortawesome/fontawesome-free/css/all.css";
+import "@mdi/font/css/materialdesignicons.css"
+import "@fortawesome/fontawesome-free/css/all.css"
 
 export default defineNuxtPlugin(nuxtApp => {
     const vuetify = createVuetify({
